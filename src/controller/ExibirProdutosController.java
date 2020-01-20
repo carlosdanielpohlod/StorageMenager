@@ -27,6 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -70,6 +71,10 @@ public class ExibirProdutosController implements Initializable {
     public static Produto produto;
     @FXML
     private Button btnCadastrarProduto;
+    @FXML
+    private TextField tfdPesquisar;
+    @FXML
+    private Button btnPesquisar;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -118,6 +123,10 @@ public class ExibirProdutosController implements Initializable {
             Logger.getLogger(ExibirProdutosController.class.getName()).log(Level.SEVERE, null, ex);
         }
           root.setCenter(center);
+    }
+
+    @FXML
+    private void btnPesquisarOnAction(javafx.event.ActionEvent event) {
     }
 
    
