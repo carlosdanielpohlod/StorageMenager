@@ -1,0 +1,12 @@
+.text-field {
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
+}
+.text-field:focused {
+    -fx-background-color:blue, -fx-background ;
+}
+.text-field:hover{
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-color:red, -fx-background;
+}

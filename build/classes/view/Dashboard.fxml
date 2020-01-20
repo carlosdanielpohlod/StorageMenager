@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+   <children>
+      <Button layoutX="577.0" layoutY="333.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-graphic: url('/view/estoque.png'); -fx-background-color: #0000;">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@funcionarios.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnGerenciarEstoque" layoutX="840.0" layoutY="316.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnGerenciarEstoqueOnAction" prefHeight="50.0" prefWidth="50.0" style="-fx-graphic: url('/view/funcionarios.png')">
+         <graphic>
+            <ImageView fitHeight="180.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@estoque.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

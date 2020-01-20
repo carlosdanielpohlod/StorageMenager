@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1280.0" stylesheets="@../resources/tableStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ExibirProdutosController">
+   
+    <children>
+        <AnchorPane layoutX="222.0" layoutY="45.0" prefHeight="674.0" prefWidth="971.0">
+      <TableView fx:id="tabela" editable="true" layoutX="19.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="916.0">
+        <columns>
+          <TableColumn fx:id="colunaNome" minWidth="-1.0" prefWidth="157.0" text="Nome" />
+          <TableColumn fx:id="colunaQuantidade" minWidth="-1.0" prefWidth="76.0" resizable="false" text="Estoque" />
+            <TableColumn fx:id="colunaDescricao" minWidth="-1.0" prefWidth="302.0" resizable="false" text="Descrição" />
+            <TableColumn fx:id="colunaIcon" minWidth="0.0" prefWidth="104.0" text="Visualizar" />
+               <TableColumn fx:id="colValorUnitario" prefWidth="176.0" text="Valor Unitario" />
+               <TableColumn fx:id="selectCol" prefWidth="100.0" text="Selecionar" />
+               <TableColumn prefWidth="75.0" text="Column X" />
+        </columns>
+         <columnResizePolicy>
+           
+         </columnResizePolicy>
+        
+      </TableView>
+      <Button fx:id="btnVisualizar" layoutX="648.0" layoutY="601.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#btnVisualizarOnAction" prefWidth="66.0" text="Ver" AnchorPane.bottomAnchor="48.0" />
+         <Button fx:id="btnCadastrarProduto" layoutX="731.0" layoutY="601.0" mnemonicParsing="false" onAction="#btnCadastrarProdutoOnAction" text="Cadastrar" />
+        </AnchorPane>
+    </children>
+</AnchorPane>
