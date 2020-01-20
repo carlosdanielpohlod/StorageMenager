@@ -45,7 +45,7 @@ import javafx.util.Callback;
  */
 public class ExibirProdutosController implements Initializable {
     @FXML
-        TableView tabela = new TableView<>();
+     private TableView tabela = new TableView<>();
     @FXML
         TableColumn colunaNome = new TableColumn<>("Nome");
     TableColumn colBotao = new TableColumn<Produto, Button>("Botao");
@@ -63,12 +63,14 @@ public class ExibirProdutosController implements Initializable {
     @FXML
         private Button btnVisualizar;
     private ArrayList<Produto> produtos = new ArrayList<>();
+    public static ArrayList<Produto> produtosFiltro = new ArrayList<>();
     
     private AnchorPane center;
     private BorderPane root;
         Button b = new Button("AÇÃO");
     private ProdutoDBDAO dbdao = new ProdutoDBDAO ();
     public static Produto produto;
+    public static Produto produtoFiltro;
     @FXML
     private Button btnCadastrarProduto;
     @FXML
@@ -127,6 +129,24 @@ public class ExibirProdutosController implements Initializable {
 
     @FXML
     private void btnPesquisarOnAction(javafx.event.ActionEvent event) {
+          try {
+            
+            
+            dbdao.filtroPesquisa(produtosFiltro, tfdPesquisar.getText());
+        } catch (SQLException ex) {
+            System.out.println("Erro ao baxa");
+        }
+          
+           root = new BorderPane();
+       
+          center = new AnchorPane();
+          root = App.root;   
+        try {
+            center = FXMLLoader.load(getClass().getResource("/view/ExibirProdutosFiltro.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(ExibirProdutosController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          root.setCenter(center);
     }
 
    

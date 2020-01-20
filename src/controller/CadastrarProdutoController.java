@@ -5,7 +5,10 @@
  */
 package controller;
 
+import app.App;
+import static controller.ExibirProdutosController.produtosFiltro;
 import dao.ProdutoDBDAO;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -17,6 +20,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -26,6 +30,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import model.Produto;
 
 /**
@@ -45,6 +51,10 @@ public class CadastrarProdutoController implements Initializable {
     private Button btnVoltar;
     @FXML
     private TextField tfdTamanho,tfdPreco;
+    @FXML
+    private AnchorPane center;
+    @FXML
+    private BorderPane root;
     private Produto produto = new Produto();
     @FXML
     private ObservableList<String> categoria = FXCollections.observableArrayList("sapatilha","sapatopreto");
@@ -69,6 +79,17 @@ public class CadastrarProdutoController implements Initializable {
     @FXML
     private void btnVoltarOnAction(ActionEvent event) {
         
+          
+           root = new BorderPane();
+       
+          center = new AnchorPane();
+          root = App.root;   
+        try {
+            center = FXMLLoader.load(getClass().getResource("/view/ExibirProdutos.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(ExibirProdutosController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          root.setCenter(center);
     }
     @FXML
     private void btnContinuarOnAction(ActionEvent event){

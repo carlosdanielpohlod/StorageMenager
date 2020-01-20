@@ -97,4 +97,41 @@ public class ProdutoDBDAO implements IConst{
             db.close();
         }
     }
+    public void filtroPesquisa(ArrayList<Produto> listProdutos, String parametroPesquisa) throws SQLException{
+         try{
+            Class.forName("com.mysql.jdbc.Driver");
+            db = conexao.getConnection(url, usuario, senha);
+            open();  
+        }catch(Exception excecaoConecao){
+            JOptionPane.showMessageDialog(null,"Houve um erro na conexao... "+excecaoConecao);
+        }
+        try{
+           sql = "SELECT p.nome, p.idProduto, p.descricao, p.valorUnitario, p.tamanhoProduto,  quan.qtdProduto, foto.urlFoto FROM produto p  JOIN Estoque quan ON quan.idProduto = p.idProduto JOIN fotoilustrativa foto ON foto.idFoto = p.idFoto "
+                   + "WHERE p.nome LIKE '%"+parametroPesquisa+"%'";
+            System.out.println(sql);
+           statement = db.prepareStatement(sql);        
+      
+            try(ResultSet result = statement.executeQuery(sql)){
+               while (result.next()) {
+                   
+                   produto = new Produto(result.getInt("idproduto"),result.getString("nome"), result.getInt("qtdProduto"), result.getString("descricao"),
+                   result.getDouble("valorUnitario"), result.getString("urlFoto"), result.getString("tamanhoProduto"));
+                   if(result == null)
+                       JOptionPane.showMessageDialog(null, "Vazio");
+                   else
+                    listProdutos.add(produto);
+                 
+               }
+            }catch(Exception e){
+                System.out.println("Erro no select "+e);
+                e.printStackTrace();
+            }
+                   
+                   
+        }catch(Exception excecaoDowload){
+            JOptionPane.showMessageDialog(null,"Houve um erro ao Baixar os dados ... "+ excecaoDowload);
+        }finally{
+            db.close();
+        }
+    }
 }
