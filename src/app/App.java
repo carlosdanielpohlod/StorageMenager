@@ -23,7 +23,7 @@ public class App extends Application {
    public static BorderPane root = new BorderPane();
     @Override
     public void start(Stage primaryStage) throws IOException {
-        center = FXMLLoader.load(getClass().getResource("/view/ExibirProdutos.fxml"));
+        center = FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"));
         root.setCenter(center);
         primaryStage.setScene(new Scene(root));
         primaryStage.setWidth(1920);
