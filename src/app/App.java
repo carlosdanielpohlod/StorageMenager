@@ -14,16 +14,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author william
- */
+
 public class App extends Application {
    private AnchorPane center = new AnchorPane();
    public static BorderPane root = new BorderPane();
     @Override
     public void start(Stage primaryStage) throws IOException {
-        center = FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"));
+        center = FXMLLoader.load(getClass().getResource("/view/ExibirProdutos.fxml"));
         root.setCenter(center);
         primaryStage.setScene(new Scene(root));
         primaryStage.setWidth(1920);
@@ -33,5 +30,8 @@ public class App extends Application {
     }
     public BorderPane getRoot(){
         return root;
+    }
+    public static void main (String[]args){
+        launch(args);
     }
 }
